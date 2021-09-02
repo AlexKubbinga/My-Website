@@ -1,4 +1,4 @@
-baseURL: https://alexkubbinga.netlify.app/
+baseURL: "https://alexkubbinga.netlify.app/"
 languageCode: en-us
 title: Portfolio Website for Alex Kubbinga
 theme: forty
