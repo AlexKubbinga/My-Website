@@ -1,7 +1,7 @@
 baseURL: "https://alexkubbinga.netlify.app/"
 languageCode: en-us
 title: Portfolio Website for Alex Kubbinga
-theme: kross-hugo
+theme: forty
 googleAnalytics: ''
 disqusShortname: ''
 params:
