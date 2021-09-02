@@ -1,6 +1,6 @@
-baseURL: http://example.org/
+baseURL: https://alexkubbinga.netlify.app/
 languageCode: en-us
-title: Forty
+title: Portfolio Website for Alex Kubbinga
 theme: forty
 googleAnalytics: ''
 disqusShortname: ''
@@ -8,9 +8,9 @@ params:
   banner:
     buttonText: Get Started
     subtitle: |-
-      A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
-      AND RELEASED UNDER THE CREATIVE COMMONS.
-    title: Hi, my name is Forty
+      #A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
+      #AND RELEASED UNDER THE CREATIVE COMMONS.
+    title: Hi, my name is Alex Kubbinga
   blog: {}
   contact:
     address:
