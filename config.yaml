@@ -1,7 +1,7 @@
 baseURL: "https://alexkubbinga.netlify.app/"
 languageCode: en-us
 title: Portfolio Website for Alex Kubbinga
-theme: "kross-hugo"
+theme: "forty"
 googleAnalytics: ''
 disqusShortname: ''
 params:
@@ -83,7 +83,7 @@ params:
     showcase:
       - image: pic01.jpg
         subtitle: Ipsum Dolor Sit Amet
-        title: Aliquam
+        title: Hello this is me!
         url: blogs/aliquam
       - image: pic02.jpg
         subtitle: Feugiat Amet Tempus

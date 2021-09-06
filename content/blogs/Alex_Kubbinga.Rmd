@@ -1,0 +1,352 @@
+---
+categories:
+- ""
+- ""
+date: "2017-10-31T22:42:51-05:00"
+description: Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna
+  sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa
+  sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem
+  consequat tincidunt. Vivamus et sagittis tempus.
+draft: false
+image: pic07.jpg
+keywords: ""
+slug: Alex Kubbinga
+title: Aliquam
+---
+
+```{r global-options, include=FALSE}
+knitr::opts_chunk$set( warning=FALSE, message=FALSE)
+```
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(gapminder)  # gapminder dataset
+library(here)
+library(janitor)
+```
+
+# Task 1: Brief Biography
+
+# Alex Kubbinga's Brief Biography:
+
+![](https://media-exp1.licdn.com/dms/image/C4D03AQG2u8dcVpG9xg/profile-displayphoto-shrink_800_800/0/1596704694739?e=1635379200&v=beta&t=H7NNjZrw5J_75hDOOmkZbqK5mXdqOj8h_C5p7NUYe5w){width="150px," height="200px"}
+
+Hi there! I was born in Singapore. I am *South African and Dutch* by birth, but spent most of my life growing up in **Dubai**. I recently completed my bachelors in Milan studying economics and computer science.
+
+### I have lived in the following cities:
+
+-   Singapore
+-   Shanghai
+-   Johannesburg
+-   Dubai
+-   Milan
+-   London
+
+In my free time I enjoy:
+
+1.  Working out (football, swimming, calisthenics)
+2.  Reading about investing and business
+3.  Spending time with close friends and meeting new people
+
+Things I want to do more of:
+
+1.  Code
+2.  Make YouTube videos
+
+# Task 2: `gapminder` country comparison
+
+The `gapminder` dataset that has data on life expectancy, population, and GDP per capita for 142 countries from 1952 to 2007. Here is an overview of the dataset:
+
+```{r}
+glimpse(gapminder)
+
+head(gapminder, 20) # look at the first 20 rows of the dataframe
+
+```
+
+Now that we know what the dataset is like, lets start off with a quick analysis of my home country the Netherlands:
+
+```{r}
+country_data <- gapminder %>% 
+            filter(country == "Netherlands") # just choosing Greece, as this is where I come from
+
+continent_data <- gapminder %>% 
+            filter(continent == "Europe")
+```
+
+Here we have a line plot showing how life expectancy in the Netherlands has changed since 1952. Life expectancy started at around 72 in 1952 and in 2007 it had grown to around 80.
+
+```{r, lifeExp_Netherlands_with_label}
+plot1<- ggplot(country_data, aes(x=year, y=lifeExp)) + geom_point() + 
+  geom_smooth(se = FALSE) +
+   labs(title = "Netherlands Life Expectancy over time",
+       x = "Year",
+       y = "Life Exepectancy") 
+plot1
+
+```
+
+Now that we have analyzed the Netherlands life expectancy, lets see how it compares to the rest of Europe. As we can see, the Netherlands had one of the higher starting and ending life expectancies in Europe.
+
+```{r lifeExp_Europe}
+plot2<- ggplot(continent_data, mapping = aes(x =year  , y =lifeExp  , colour=country , group=country))+geom_point() + geom_smooth(se = FALSE)
+
+plot2
+
+```
+
+It is also interesting to see how all continents have evolved over time. Below we have a plot for every continent demonstrating the change in life expectancy for each continent. Each dot represents a life expectancy value for a country in a given year. The trend line shows the conditional mean of life expectancy in each continent over the years in our dataset.
+
+```{r lifeExp_facet_by_continent}
+ ggplot(data = gapminder , mapping = aes(x =year  , y =lifeExp  , colour=continent))+
+   geom_point() + 
+  geom_smooth(se = FALSE) +
+   facet_wrap(~continent) +
+   theme(legend.position="none")
+```
+
+The data shows that since 1952 the average life expectancy in all continents has increased. This can be seen as all continents have a positive sloping trendline of life expectancy. The world has become a safer and healthier place due to advances in technology.
+
+Certain continents, and countries within the respective continents, have higher life expectancies than others. This could be due to a variety of factors including economic position, political stability, health systems, lifestyle, culture and much more.
+
+# Task 3: Brexit vote analysis
+
+Our goal here is to look at and analyse the 2016 Brexit vote in the UK.
+
+```{r load_brexit_data, warning=FALSE, message=FALSE}
+brexit_results <- read_csv(here::here("data","brexit_results.csv"))
+
+
+glimpse(brexit_results)
+```
+
+The data comes from [Elliott Morris](https://www.thecrosstab.com/), who cleaned it and made it available through his [DataCamp class on analysing election and polling data in R](https://www.datacamp.com/courses/analyzing-election-and-polling-data-in-r).
+
+Our main outcome variable (or y) is `leave_share`, which is the percent of votes cast in favour of Brexit, or leaving the EU. Each row is a UK [parliament constituency](https://en.wikipedia.org/wiki/United_Kingdom_Parliament_constituencies).
+
+To get a sense of the spread, or distribution, of the data, we can plot a histogram, a density plot, and the empirical cumulative distribution function of the leave % in all constituencies.
+
+```{r brexit_histogram, warning=FALSE, message=FALSE}
+
+# histogram
+ggplot(brexit_results, aes(x = leave_share)) +
+  geom_histogram(binwidth = 2.5) + labs(
+    title = "Histogram of Leave Share",
+    subtitle="Frequency distribution of leave share",
+    x = "Leave Share %",
+    y = "Frequency"
+  )
+
+# density plot-- think smoothed histogram
+ggplot(brexit_results, aes(x = leave_share)) +
+  geom_density() + labs(
+    title = "Density plot of Leave Share",
+    subtitle="Smoothed histogram showing distribution of leave share",
+    x = "Leave Share %",
+    y = "Density"
+  )
+
+
+# The empirical cumulative distribution function (ECDF) 
+ggplot(brexit_results, aes(x = leave_share)) +
+  stat_ecdf(geom = "step", pad = FALSE) +
+  scale_y_continuous(labels = scales::percent) + labs(
+    title = "ECDF of Leave Share",
+    subtitle="Shows the percentage of constituencies with equal or less than leave shares",
+    x = "Leave Share %",
+    y = "ECDF"
+  )
+  
+
+
+```
+
+One common explanation for the Brexit outcome was fear of immigration and opposition to the EU's more open border policy. We can check the relationship (or correlation) between the proportion of native born residents (`born_in_uk`) in a constituency and its `leave_share`. To do this, let us get the correlation between the two variables:
+
+```{r brexit_immigration_correlation}
+brexit_results %>% 
+  select(leave_share, born_in_uk) %>% 
+  cor()
+```
+
+The correlation is almost 0.5, which shows that the two variables are positively correlated.
+
+To better visualise the relationship between `born_in_uk` and `leave_share` we can create a scatterplot:
+
+```{r brexit_immigration_plot}
+ggplot(brexit_results, aes(x = born_in_uk, y = leave_share)) +
+  geom_point(alpha=0.3) +
+  
+  # add a smoothing line, and use method="lm" to get the best straight-line
+  geom_smooth(method = "lm") + 
+  
+  # use a white background and frame the plot with a black box
+  theme_bw() +  labs(
+    title = "Scatterplot of Leave Share and Born in UK variables",
+    subtitle="Used to see relationship between Leave vote and birth in UK",
+    x = "Born in UK",
+    y = "Leave Share %"
+  )
+```
+
+The scatterplot graphs the % of individuals born in the UK in each constituency vs the % of individuals that voted to leave the EU in each constituency.
+
+The UK born population in a constituency is hypothesized to be an important predictor in leave share as UK born and bred individuals may have more nationalistic views and be more likely to want to leave the EU. This could mean that if a constituency has more UK born individuals it could have a greater percentage of leave share votes.
+
+Fearing the open immigration policy in the EU and wanting to prevent this from diminishing British culture, British born individuals were more likely to vote to leave the EU. This can be seen due to the populated cluster of constituencies with a greater % of indiviudals born in the UK and a greater % of votes to leave. The scatter plot also has a positive sloped trendline. The positively sloped trendline shows the positive correlation between % Born in the UK and the Leave Share %.
+
+# Task 4: Animal rescue incidents attended by the London Fire Brigade
+
+[The London Fire Brigade](https://data.london.gov.uk/dataset/animal-rescue-incidents-attended-by-lfb) attends a range of non-fire incidents (which we call 'special services'). These 'special services' include assistance to animals that may be trapped or in distress. The data is provided from January 2009 and is updated monthly. A range of information is supplied for each incident including some location information (postcode, borough, ward), as well as the data/time of the incidents. We do not routinely record data about animal deaths or injuries.
+
+Here we have an overview of the Animal Rescue Incidents dataset:
+
+```{r load_animal_rescue_data, warning=FALSE, message=FALSE}
+
+url <- "https://data.london.gov.uk/download/animal-rescue-incidents-attended-by-lfb/8a7d91c2-9aec-4bde-937a-3998f4717cd8/Animal%20Rescue%20incidents%20attended%20by%20LFB%20from%20Jan%202009.csv"
+
+animal_rescue <- read_csv(url,
+                          locale = locale(encoding = "CP1252")) %>% 
+  janitor::clean_names()
+
+
+glimpse(animal_rescue)
+```
+
+One of the more useful things one can do with any data set is quick counts, namely to see how many observations fall within one category. We want to count the number of animal rescue incidents by year. This can be done by using [`count()`](https://dplyr.tidyverse.org/reference/count.html) or `group_by()` and `summarise()`
+
+```{r, instances_by_calendar_year}
+
+# animal_rescue %>% 
+#   dplyr::group_by(cal_year) %>% 
+#   summarise(count=n())
+
+animal_rescue %>% 
+  count(cal_year, name="count")
+
+```
+
+It is also interesting to see the number of incidents by animal group to analyse which animals are rescued more frequently.
+
+```{r, animal_group_percentages}
+# animal_rescue %>% 
+#   group_by(animal_group_parent) %>% 
+#   
+#   #group_by and summarise will produce a new column with the count in each animal group
+#   summarise(count = n()) %>% 
+#   
+#   # mutate adds a new column; here we calculate the percentage
+#   mutate(percent = round(100*count/sum(count),2)) %>% 
+#   
+#   # arrange() sorts the data by percent. Since the default sorting is min to max and we would like to see it sorted
+#   # in descending order (max to min), we use arrange(desc()) 
+#   arrange(desc(percent))
+# 
+# 
+animal_rescue %>%
+  
+  #count does the same thing as group_by and summarise
+  # name = "count" will call the column with the counts "count" ( exciting, I know)
+  # and 'sort=TRUE' will sort them from max to min
+  count(animal_group_parent, name="count", sort=TRUE) %>% 
+  mutate(percent = round(100*count/sum(count),2))
+
+
+```
+
+It is strange to note that there are some cases with unknown animals. In addition, Cat, Bird, Dog and Fox make up the majority of all cases (\~80%).
+
+Finally, let us have a look at the notional cost for rescuing each of these animals. As the LFB says,
+
+> Please note that any cost included is a notional cost calculated based on the length of time rounded up to the nearest hour spent by Pump, Aerial and FRU appliances at the incident and charged at the current Brigade hourly rate.
+
+There is two things we will do:
+
+1.  Calculate the mean and median `incident_notional_cost` for each `animal_group_parent`
+2.  Plot a boxplot to get a feel for the distribution of `incident_notional_cost` by `animal_group_parent`.
+
+Before we go on, however, we need to fix `incident_notional_cost` as it is stored as a `chr`, or character, rather than a number.
+
+```{r, parse_incident_cost,message=FALSE, warning=FALSE}
+
+# what type is variable incident_notional_cost from dataframe `animal_rescue`
+typeof(animal_rescue$incident_notional_cost)
+
+# readr::parse_number() will convert any numerical values stored as characters into numbers
+animal_rescue <- animal_rescue %>% 
+
+  # we use mutate() to use the parse_number() function and overwrite the same variable
+  mutate(incident_notional_cost = parse_number(incident_notional_cost))
+
+# incident_notional_cost from dataframe `animal_rescue` is now 'double' or numeric
+typeof(animal_rescue$incident_notional_cost)
+
+```
+
+Now that incident_notional_cost is numeric, let us quickly calculate summary statistics for each animal group.
+
+```{r, stats_on_incident_cost,message=FALSE, warning=FALSE}
+
+animal_rescue %>% 
+  
+  # group by animal_group_parent
+  group_by(animal_group_parent) %>% 
+  
+  # filter resulting data, so each group has at least 6 observations
+  filter(n()>6) %>% 
+  
+  # summarise() will collapse all values into 3 values: the mean, median, and count  
+  # we use na.rm=TRUE to make sure we remove any NAs, or cases where we do not have the incident costs
+  summarise(mean_incident_cost = mean (incident_notional_cost, na.rm=TRUE),
+            median_incident_cost = median (incident_notional_cost, na.rm=TRUE),
+            sd_incident_cost = sd (incident_notional_cost, na.rm=TRUE),
+            min_incident_cost = min (incident_notional_cost, na.rm=TRUE),
+            max_incident_cost = max (incident_notional_cost, na.rm=TRUE),
+            count = n()) %>% 
+  
+  # sort the resulting data in descending order. You choose whether to sort by count or mean cost.
+  arrange(-mean_incident_cost)
+
+```
+
+From looking at the mean and median incident costs we can see:
+
+There are two potential outliers of animal groups, which are Horses and Cows with mean costs of 739.5 and 633.8571 respectively.
+
+It is interesting to note that the mean cost for almost all other types of animals incidents is in the range of 420 to 300 pounds.
+
+Comparing the medians and the means, we can see that most animal groups have higher mean costs than median costs, potentially due to instances where rescue costs were abnormally high. This has the effect of increasing the mean cost.
+
+Finally, let us plot a few plots that show the distribution of incident_cost for each animal group.
+
+```{r, plots_on_incident_cost_by_animal_group,message=FALSE, warning=FALSE}
+
+# base_plot
+base_plot <- animal_rescue %>% 
+  group_by(animal_group_parent) %>% 
+  filter(n()>6) %>% 
+  ggplot(aes(x=incident_notional_cost))+
+  facet_wrap(~animal_group_parent, scales = "free")+
+  theme_bw()
+
+base_plot + geom_histogram()
+base_plot + geom_density()
+base_plot + geom_boxplot()
+base_plot + stat_ecdf(geom = "step", pad = FALSE) +
+  scale_y_continuous(labels = scales::percent)
+
+
+
+```
+
+In my opinion, the Box Plots best communicate the variability of the `incident_notional_cost` values. This is because it shows the median of all the different animal groups as well as the outliers. It can be seen that the medians vary for each group and some groups have more outliers than others.
+
+The cows, deers, horses and unknown wild animals seem to be the most expensive animals to rescue. Cows, deers and horses are some of the heaviest animals on the list. Due to this it could require more staff and/or more Pump, Aerial and FRU appliances to control and rescue the heavier animals. The more resources used and the more time spent intuitively leads to higher incidental costs. The Wild Animals also could require more time and resources as they are not domesticated. This may cause the wild animals to flee, hide or create more damage as they are not used to being around humans. The animal groups mentioned start the x axis at a higher cost than other groups showcasing their higher cost distribution.
+
+## Details
+
+If you want to, please answer the following
+
+-   Who did you collaborate with: N/A
+-   Approximately how much time did you spend on this problem set: 2-3hrs
+-   What, if anything, gave you the most trouble: Creating story for data.
