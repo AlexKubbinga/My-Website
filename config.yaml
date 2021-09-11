@@ -1,118 +1,70 @@
-baseURL: "https://alexkubbinga.netlify.app/"
-languageCode: en-us
-title: Portfolio Website for Alex Kubbinga
-theme: "forty"
-googleAnalytics: ''
-disqusShortname: ''
-params:
-  banner:
-    buttonText: Get Started
-    subtitle: |-
-      #A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
-      #AND RELEASED UNDER THE CREATIVE COMMONS.
-    title: Hi, my name is Alex Kubbinga
-  blog: {}
-  contact:
-    address:
-      - city: London
-        country: UK
-        street: Regent's Park
-        title: Address
-    buttonClear: Clear
-    buttonSend: Send message
-    email:
-      - email: akubbinga.mam2022@london.edu
-        title: Email
-    enable: yes
-    phone:
-      - phone: +447494241433
-        title: Phone
-  custom_css: []
-  custom_js: []
-  description: Your description
-  error404:
-    heading: Page couldn't be found
-    text: Please visit [this page](/)
-  favicon: favicon.ico
-  footer:
-    copyright: Company Name
-    enable: yes
-    quicklinks:
-      - alt: HTML5 UP
-        text: 'Design: '
-        url: https://www.html5up.net
-    social:
-     # - icon: fa-twitter
-       # label: Twitter
-       # url: https://www.twitter.com
-     # - icon: fa-facebook
-      #  label: Facebook
-       # url: https://www.facebook.com
-      # - icon: fa-instagram
-      #   label: Instagram
-      #   url: https://www.instagram.com
-      - icon: fa-github
-        label: GitHub
-        url: https://www.github.com/AlexKubbinga
-      - icon: fa-linkedin
-        label: LinkedIn
-        url: https://www.linkedin.com/in/alexkubbinga/
-  image: ''
-  name: Your name
-  navigation:
-    button1:
-      - name: Get Started
-        url: blogs
-    button2:
-      - name: Log In
-        url: '#'
-    links:
-      - name: Home
-        url: '#'
-      - name: Blogs
-        url: blogs
-      - name: Generic Blog
-        url: blogs/ipsum
-      - name: Elements
-        url: elements.html
-    menu: Menu
-    subtitle: By HTML5 Up
-    title: Forty
-  tiles:
-    enable: yes
-    showcase:
-      - image: pic01.jpg
-        subtitle: Ipsum Dolor Sit Amet
-        title: Hello this is me!
-        url: blogs/aliquam
-      - image: pic02.jpg
-        subtitle: Feugiat Amet Tempus
-        title: Tempus
-        url: blogs/tempus
-      - image: pic03.jpg
-        subtitle: Lorem Etiam Nullam
-        title: Magna
-        url: blogs/magna
-      - image: pic04.jpg
-        subtitle: Nisl Sed Aliquam
-        title: Ipsum
-        url: blogs/ipsum
-      - image: pic05.jpg
-        subtitle: Ipsum Dolor Sit Amet
-        title: Consequat
-        url: blogs/ipsum
-      - image: pic06.jpg
-        subtitle: Feugiat Amet Tempus
-        title: Etiam
-        url: blogs/ipsum
-  two:
-    buttonText: Get Started
-    enable: yes
-    subtitle: "Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero.
-      \n    Mauris aliquet magna magna sed nunc rhoncus pharetra. \n    Pellentesque
-      condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia
-      pellentesque lorem ipsum dolor. \n    Nullam et orci eu lorem consequat tincidunt.
-      Vivamus et sagittis libero.\n    Mauris aliquet magna magna sed nunc rhoncus
-      amet pharetra et feugiat tempus."
-    title: Massa libero
-    url: blogs
+theme: "starter-hugo-academic"
+# Configuration of Hugo
+# Guide: https://wowchemy.com/docs/getting-started/
+# Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
+# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+
+title: Academic # Website name
+baseurl: 'https://academic-demo.netlify.app/' # Website URL
+copyright: '' # Footer text, e.g. '© {year} Me'
+
+############################
+## LANGUAGE
+############################
+
+defaultContentLanguage: en
+hasCJKLanguage: false
+defaultContentLanguageInSubdir: false
+removePathAccents: true
+
+############################
+## MODULES
+############################
+
+module:
+  imports:
+    - path: github.com/wowchemy/wowchemy-hugo-modules/wowchemy-cms/v5
+    - path: github.com/wowchemy/wowchemy-hugo-modules/wowchemy/v5
+
+############################
+## ADVANCED
+############################
+
+enableGitInfo: false
+summaryLength: 30
+paginate: 10
+enableEmoji: true
+enableRobotsTXT: true
+footnotereturnlinkcontents: <sup>^</sup>
+ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
+permalinks:
+  event: '/talk/:slug/'
+  authors: '/author/:slug/'
+  tags: '/tag/:slug/'
+  categories: '/category/:slug/'
+  publication_types: '/publication-type/:slug/'
+disableAliases: true
+outputs:
+  home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
+  section: [HTML, RSS]
+imaging:
+  resampleFilter: lanczos
+  quality: 75
+  anchor: smart
+timeout: 600000
+taxonomies:
+  tag: tags
+  category: categories
+  publication_type: publication_types
+  author: authors
+markup:
+  _merge: deep
+related:
+  threshold: 80
+  includeNewer: true
+  toLower: true
+  indices:
+    - name: tags
+      weight: 100
+    - name: categories
+      weight: 70
