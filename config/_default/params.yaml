@@ -6,7 +6,7 @@
 # Appearance
 
 theme: minimal
-day_night: true
+day_night: false
 font: ''
 font_size: L
 
@@ -20,40 +20,34 @@ twitter: ''
 
 # Contact (edit or remove options as required)
 
-email: test@example.org
-phone: 888 888 88 88
+email: akubbinga.mam2022@london.edu
+phone: +447494241433
 address:
-  street: 450 Serra Mall
-  city: Stanford
-  region: CA
-  postcode: '94305'
-  country: United States
-  country_code: US
+  street: Regent's Park
+  city: London
+  region: ""
+  postcode: 'NW14SA'
+  country: United Kingdom
+  country_code: UK
 coordinates:
-  latitude: '37.4275'
-  longitude: '-122.1697'
-directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
-office_hours:
-  - 'Monday 10:00 to 13:00'
-  - 'Wednesday 09:00 to 10:00'
-appointment_url: 'https://calendly.com'
+  latitude: '51.5262'
+  longitude: '-0.1607'
+
+#office_hours:
+#appointment_url: 'https://calendly.com'
 contact_links:
-  - icon: twitter
+  #- icon: twitter
+    #icon_pack: fab
+    #name: DM Me
+  #  link: 'https://twitter.com/Twitter'
+  - icon: linkedin
     icon_pack: fab
-    name: DM Me
-    link: 'https://twitter.com/Twitter'
-  - icon: skype
+    name: LinkedIn
+    link: 'https://www.linkedin.com/in/alexkubbinga/'
+  - icon: github
     icon_pack: fab
-    name: Skype Me
-    link: 'skype:echo123?call'
-  - icon: keybase
-    icon_pack: fab
-    name: Chat on Keybase
-    link: 'https://keybase.io/'
-  - icon: comments
-    icon_pack: fas
-    name: Discuss on Forum
-    link: 'https://discourse.gohugo.io'
+    name: Github
+    link: 'https://github.com/AlexKubbinga'
 
 # Site header
 
