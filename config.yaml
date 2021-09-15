@@ -4,7 +4,7 @@ theme: "starter-hugo-academic"
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: Alex Kubbinga's Portfolio # Website name
+title: Alex Kubbinga # Website name
 baseurl: 'https://alexkubbinga.netlify.app/' # Website URL
 copyright: '© {2021} Alex Kubbinga' # Footer text, e.g. '© {year} Me'
 

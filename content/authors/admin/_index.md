@@ -1,6 +1,5 @@
 ---
-bio: My research interests include distributed robotics, mobile computing and programmable
-  matter.
+# bio: My research interests include distributed robotics, mobile computing and programmable matter.
 education:
   courses:
   - course: MSc in Analytics and Management
@@ -13,34 +12,30 @@ email: ""
 highlight_name: true
 interests:
 - Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Value Investing
+- Predictive Analytics
 organizations:
-- name: Stanford University
-  url: https://www.stanford.edu/
+- name: London Business School
+  url: https://www.london.edu/masters-degrees/masters-in-analytics-and-management
 role: Analytics student at London Business School
 social:
-- icon: envelope
-  icon_pack: fas
-  link: /#contact
 - display:
     header: true
-  icon: twitter
-  icon_pack: fab
-  label: Follow me on Twitter
-  link: https://twitter.com/GeorgeCushen
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/AlexKubbinga
 - icon: linkedin
   icon_pack: fab
-  link: https://www.linkedin.com/
+  link: https://www.linkedin.com/in/alexkubbinga/
 superuser: true
 title: Alex Kubbinga
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+I am Dutch and South African, but spent the majority of my life growing up in Dubai. Currently pursuing a masters in analytics and management to further develop my technical and business skillsets. My interests include investing, data analysis, technology and health & fitness. At LBS I am a member of the Investment Management Club, Football Club, Tech & Media Club, and the Energy & Environment Club. Here you will find projects I have worked on and other information about me. 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+**My favorite books:**
+1. Snowball: Warren Buffett and the Business of Life
+2. Deep Work
+3. Grit: The Power of Passion and Perseverance
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/Alex_Kubbinga_CV.pdf" "newtab" >}}CV{{< /staticref >}}.
