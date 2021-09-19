@@ -8,10 +8,6 @@ summary: Building ML models to predict outperformance of US Stocks.
 tags:
 - Python
 title: Fundamental Analysis with SAS
-url_code: ""
-url_pdf: ""
-url_slides: ""
-url_video: ""
 ---
 
 # Abstract:
