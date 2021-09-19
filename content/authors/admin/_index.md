@@ -1,5 +1,5 @@
 ---
-# bio: My research interests include distributed robotics, mobile computing and programmable matter.
+# bio: 
 education:
   courses:
   - course: MSc in Analytics and Management
@@ -8,7 +8,7 @@ education:
   - course: BSc in Economics, Management & Computer Science
     institution: Bocconi University
     year: 2018-2021
-email: ""
+email: "akubbinga.mam2022@london.edu"
 highlight_name: true
 interests:
 - Artificial Intelligence
