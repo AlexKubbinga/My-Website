@@ -14,7 +14,7 @@ url_slides: ""
 url_video: ""
 ---
 
-#Abstract:
+# Abstract:
 
 Fundamental analysis is the process of analyzing a company’s financial statements to determine its financial strength for potential investment opportunities. This paper describes the procedure of using fundamental data as inputs into various machine learning models in order to identify the most important fundamental inputs for determining a stock’s performance and to predict potential outperformance in US stocks. SAS software was used for this project to perform data visualization, model selection and model deployment.
 
