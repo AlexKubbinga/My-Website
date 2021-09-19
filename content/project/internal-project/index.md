@@ -1,8 +1,8 @@
 ---
-date: "2016-04-27T00:00:00Z"
+date: "2021-08-31T00:00:00Z"
 external_link: ""
 image:
-  caption: Photo by rawpixel on Unsplash
+  caption: Gapminder Analysis
   focal_point: Smart
 links:
 - icon: twitter
@@ -10,10 +10,10 @@ links:
   name: Follow
   url: https://twitter.com/georgecushen
 slides: example
-summary: An example of using the in-built project page.
+summary: Basic Data Analysis of various datasets.
 tags:
-- Deep Learning
-title: Internal Project
+- R
+title: MAM LOL Assignment
 url_code: ""
 url_pdf: ""
 url_slides: ""

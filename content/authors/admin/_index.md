@@ -27,6 +27,9 @@ social:
 - icon: linkedin
   icon_pack: fab
   link: https://www.linkedin.com/in/alexkubbinga/
+- icon: envelope
+  icon_pack: fas
+  link: mailto:akubbinga.mam2022@london.edu
 superuser: true
 title: Alex Kubbinga
 ---
