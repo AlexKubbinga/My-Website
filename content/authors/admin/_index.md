@@ -30,6 +30,7 @@ social:
 - icon: envelope
   icon_pack: fas
   link: mailto:akubbinga.mam2022@london.edu
+  target: _blank
 superuser: true
 title: Alex Kubbinga
 ---
