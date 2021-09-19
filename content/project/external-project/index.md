@@ -1,11 +1,11 @@
 ---
-date: "2016-04-27T00:00:00Z"
-external_link: http://example.org
+date: "2020-06-24T00:00:00Z"
+external_link: https://www.youtube.com/channel/UCI0Kl0JaEyGk-MrK3VaKPRA
 image:
-  caption: Photo by Toa Heftiba on Unsplash
+  caption: ""
   focal_point: Smart
-summary: An example of linking directly to an external project website using `external_link`.
+summary: Here is a link to my YouTube channel where I post videos on investing concepts and the philosophies of great value investors.
 tags:
 - Demo
-title: External Project
+title: My YouTube Channel
 ---
