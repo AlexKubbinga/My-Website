@@ -31,35 +31,8 @@ library(here)
 library(janitor)
 ```
 
-# Task 1: Brief Biography
 
-# Alex Kubbinga's Brief Biography:
-
-![](https://media-exp1.licdn.com/dms/image/C4D03AQG2u8dcVpG9xg/profile-displayphoto-shrink_800_800/0/1596704694739?e=1635379200&v=beta&t=H7NNjZrw5J_75hDOOmkZbqK5mXdqOj8h_C5p7NUYe5w){width="150px," height="200px"}
-
-Hi there! I was born in Singapore. I am *South African and Dutch* by birth, but spent most of my life growing up in **Dubai**. I recently completed my bachelors in Milan studying economics and computer science.
-
-### I have lived in the following cities:
-
--   Singapore
--   Shanghai
--   Johannesburg
--   Dubai
--   Milan
--   London
-
-In my free time I enjoy:
-
-1.  Working out (football, swimming, calisthenics)
-2.  Reading about investing and business
-3.  Spending time with close friends and meeting new people
-
-Things I want to do more of:
-
-1.  Code
-2.  Make YouTube videos
-
-# Task 2: `gapminder` country comparison
+# Task 1: `gapminder` country comparison
 
 The `gapminder` dataset that has data on life expectancy, population, and GDP per capita for 142 countries from 1952 to 2007. Here is an overview of the dataset:
 
@@ -115,7 +88,7 @@ The data shows that since 1952 the average life expectancy in all continents has
 
 Certain continents, and countries within the respective continents, have higher life expectancies than others. This could be due to a variety of factors including economic position, political stability, health systems, lifestyle, culture and much more.
 
-# Task 3: Brexit vote analysis
+# Task 2: Brexit vote analysis
 
 Our goal here is to look at and analyse the 2016 Brexit vote in the UK.
 
@@ -201,7 +174,7 @@ The UK born population in a constituency is hypothesized to be an important pred
 
 Fearing the open immigration policy in the EU and wanting to prevent this from diminishing British culture, British born individuals were more likely to vote to leave the EU. This can be seen due to the populated cluster of constituencies with a greater % of indiviudals born in the UK and a greater % of votes to leave. The scatter plot also has a positive sloped trendline. The positively sloped trendline shows the positive correlation between % Born in the UK and the Leave Share %.
 
-# Task 4: Animal rescue incidents attended by the London Fire Brigade
+# Task 3: Animal rescue incidents attended by the London Fire Brigade
 
 [The London Fire Brigade](https://data.london.gov.uk/dataset/animal-rescue-incidents-attended-by-lfb) attends a range of non-fire incidents (which we call 'special services'). These 'special services' include assistance to animals that may be trapped or in distress. The data is provided from January 2009 and is updated monthly. A range of information is supplied for each incident including some location information (postcode, borough, ward), as well as the data/time of the incidents. We do not routinely record data about animal deaths or injuries.
 
